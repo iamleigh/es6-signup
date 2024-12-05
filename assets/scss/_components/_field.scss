@@ -1,0 +1,55 @@
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Form Field
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(field) {
+	position: relative;
+	margin: 0 0 16px;
+
+	@include element(label) {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		left: 44px;
+		transform: translateY(-50%);
+		color: tint($color-secondary, 40%);
+	}
+
+	@include element(input) {
+		position: relative;
+
+		input {
+			width: 100%;
+			padding: 16px 44px;
+			border: 2px solid tint($color-secondary, 40%);
+			border-radius: 8px;
+			background: $color-secondary;
+			color: $color-neutral;
+			font-size: 16px;
+			line-height: 20px;
+		}
+
+		i {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			color: tint($color-secondary, 40%);
+			font-size: 20px;
+
+			&:first-child {
+				left: 16px;
+			}
+
+			&:last-child {
+				right: 16px;
+			}
+		}
+	}
+
+	&:last-child {
+		margin: 0;
+	}
+}
