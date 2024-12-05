@@ -22,7 +22,9 @@
 				const wrapper = event.currentTarget.parentElement;
 				const field = wrapper.parentElement;
 
-				field.classList.remove( 'lq-field--focus' );
+				if ( event.currentTarget && ! event.currentTarget.value ) {
+					field.classList.remove( 'lq-field--focus' );
+				}
 			}, true );
 		});
 	};
