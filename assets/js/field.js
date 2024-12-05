@@ -7,30 +7,68 @@
 		window.LQ = {};
 	}
 
+	LQ.checkUsername = ( value ) => {
+		const usernames = [
+			'leighton',
+			'iamleigh',
+			'johndoe',
+			'janedoe'
+		];
+
+		// Check if value already exists.
+		const result = usernames.some( ( username ) => username === value );
+
+		return result;
+	};
+
 	LQ.field = () => {
-		const inputs = document.querySelectorAll( '.lq-field input' );
+		const field = document.querySelector( '.lq-field' );
+		const input = document.querySelector( '.lq-field input' );
+		const button = document.querySelector( '.lq-button' );
 
-		inputs.forEach( ( input, index ) => {
-			input.addEventListener( 'focus', ( event ) => {
-				const wrapper = event.currentTarget.parentElement;
-				const field = wrapper.parentElement;
+		button.setAttribute( 'disabled', true );
 
-				field.classList.add( 'lq-field--focus' );
-			}, true );
+		input.addEventListener( 'focus', () => {
+			field.classList.add( 'lq-field--focus' );
+		}, true );
 
-			input.addEventListener( 'blur', ( event ) => {
-				const wrapper = event.currentTarget.parentElement;
-				const field = wrapper.parentElement;
+		input.addEventListener( 'keyup', ( event ) => {
+			const element = event.currentTarget;
+			const value = element.value;
 
-				field.classList.remove( 'lq-field--focus' );
+			if ( element && value ) {
+				field.classList.add( 'lq-field--loading' );
+				button.setAttribute( 'disabled', true );
 
-				if ( event.currentTarget && event.currentTarget.value ) {
-					field.classList.add( 'lq-field--filled' );
-				} else {
-					field.classList.remove( 'lq-field--filled' );
-				}
-			}, true );
-		});
+				setTimeout( () => {
+					field.classList.remove( 'lq-field--loading' );
+
+					if ( LQ.checkUsername( value ) ) {
+						field.classList.add( 'lq-field--error' );
+						field.classList.remove( 'lq-field--success' );
+					} else {
+						field.classList.add( 'lq-field--success' );
+						field.classList.remove( 'lq-field--error' );
+						button.removeAttribute( 'disabled' );
+					}
+				}, 500 );
+			} else {
+				field.classList.remove( 'lq-field--loading' );
+			}
+		}, true );
+
+		input.addEventListener( 'blur', ( event ) => {
+			field.classList.remove( 'lq-field--focus' );
+
+			if ( event.currentTarget && event.currentTarget.value ) {
+				field.classList.add( 'lq-field--filled' );
+			} else {
+				field.classList.remove( 'lq-field--filled' );
+				field.classList.remove( 'lq-field--success' );
+				field.classList.remove( 'lq-field--error' );
+				button.setAttribute( 'disabled', true );
+			}
+		}, true );
 	};
 
 	LQ.field();
