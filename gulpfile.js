@@ -70,13 +70,13 @@ gulp.task("copy-css", function () {
 	return gulp.src(["."]); // do nothing
 });
 
-gulp.task("copy-js", function () {
-	return gulp
-		.src(["./node_modules/jquery/dist/jquery.min.js"])
-		.pipe(gulp.dest(srcOutput.js));
-});
+// gulp.task("copy-js", function () {
+// 	return gulp
+// 		.src(["./node_modules/jquery/dist/jquery.min.js"])
+// 		.pipe(gulp.dest(srcOutput.js));
+// });
 
-gulp.task("copy", gulp.series(["copy-css", "copy-js"]));
+gulp.task("copy", gulp.series(["copy-css"]));
 
 /**
  * 📦 Build CSS
