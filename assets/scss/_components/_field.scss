@@ -5,6 +5,16 @@
 ///
 /// @author Leighton Quito (iamleigh.com)
 /// -----------------------------------------------------------------------------
+@keyframes spin {
+	0% {
+		transform: translateY(-50%) rotate(0deg);
+	}
+
+	100% {
+		transform: translateY(-50%) rotate(360deg);
+	}
+}
+
 @include block(field) {
 	position: relative;
 	margin: 0 0 16px;
@@ -42,16 +52,18 @@
 		i {
 			position: absolute;
 			top: 50%;
-			transform: translateY(-50%);
 			color: tint($color-secondary, 40%);
 			font-size: 20px;
 
 			&:first-child {
 				left: 16px;
+				transform: translateY(-50%);
 			}
 
 			&:last-child {
 				right: 16px;
+				transform: translateY(-50%) rotate(0deg);
+				animation: spin 1s ease-in-out infinite;
 			}
 		}
 	}
