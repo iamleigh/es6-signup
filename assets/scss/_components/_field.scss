@@ -47,23 +47,30 @@
 			font-size: 16px;
 			line-height: 20px;
 			transition: 0.2s ease;
+
+			&:hover {
+				border-color: $color-neutral;
+			}
 		}
 
 		i {
 			position: absolute;
 			top: 50%;
-			color: tint($color-secondary, 40%);
 			font-size: 20px;
 
 			&:first-child {
 				left: 16px;
 				transform: translateY(-50%);
+				color: tint($color-secondary, 40%);
+				transition: 0.2s ease;
 			}
 
 			&:last-child {
+				opacity: 0;
 				right: 16px;
 				transform: translateY(-50%) rotate(0deg);
 				animation: spin 1s ease-in-out infinite;
+				color: $color-neutral;
 			}
 		}
 	}
@@ -78,8 +85,14 @@
 			font-size: 12px;
 		}
 
-		.lq-field__input input {
-			border-color: $color-neutral;
+		.lq-field__input {
+			input {
+				border-color: $color-neutral;
+			}
+
+			i {
+				color: $color-neutral;
+			}
 		}
 	}
 }
