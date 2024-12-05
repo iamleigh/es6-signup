@@ -42,8 +42,24 @@
 		<link rel="Stylesheet" href="./assets/css/main.min.css" />
 	</head>
 
-	<body class="lq-body">
-		<!-- Enter your content here -->
+	<body>
+		<!-- Signup Form -->
+		<!-- There's no need to use <form> tag since this is just a dummy form -->
+		<div class="lq-form">
+			<div class="lq-field">
+				<label class="lq-field__label" for="username">Username</label>
+				<div class="lq-field__input">
+					<i class="fa-solid fa-circle-user" aria-hidden="true"></i>
+					<input id="username" type="text" />
+					<i class="fa-solid fa-circle-notch" aria-hidden="true"></i>
+				</div>
+			</div>
+
+			<button class="lq-button">
+				<span>Sign Up</span>
+				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+			</button>
+		</div>
 	</body>
 
 	<script src="./assets/js/dist/main.min.js"></script>
