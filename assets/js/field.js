@@ -22,8 +22,12 @@
 				const wrapper = event.currentTarget.parentElement;
 				const field = wrapper.parentElement;
 
-				if ( event.currentTarget && ! event.currentTarget.value ) {
-					field.classList.remove( 'lq-field--focus' );
+				field.classList.remove( 'lq-field--focus' );
+
+				if ( event.currentTarget && event.currentTarget.value ) {
+					field.classList.add( 'lq-field--filled' );
+				} else {
+					field.classList.remove( 'lq-field--filled' );
 				}
 			}, true );
 		});
