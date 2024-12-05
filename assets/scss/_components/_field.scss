@@ -9,13 +9,19 @@
 	position: relative;
 	margin: 0 0 16px;
 
+	&:last-child {
+		margin: 0;
+	}
+
 	@include element(label) {
+		pointer-events: none;
 		position: absolute;
 		z-index: 1;
 		top: 50%;
 		left: 44px;
 		transform: translateY(-50%);
 		color: tint($color-secondary, 40%);
+		transition: 0.2s ease;
 	}
 
 	@include element(input) {
@@ -30,6 +36,7 @@
 			color: $color-neutral;
 			font-size: 16px;
 			line-height: 20px;
+			transition: 0.2s ease;
 		}
 
 		i {
@@ -49,7 +56,18 @@
 		}
 	}
 
-	&:last-child {
-		margin: 0;
+	@include modifier(focus) {
+		.lq-field__label {
+			top: 0;
+			left: 12px;
+			padding: 0 4px;
+			background: $color-secondary;
+			color: $color-neutral;
+			font-size: 12px;
+		}
+
+		.lq-field__input input {
+			border-color: $color-neutral;
+		}
 	}
 }
