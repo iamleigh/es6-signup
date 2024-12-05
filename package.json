@@ -1,0 +1,54 @@
+{
+  "private": true,
+  "name": "@iamleigh/es6-signup",
+  "description": "A signup component built with HTML, CSS and JavaScript (ES6)",
+  "main": "index.html",
+  "license": "MIT",
+  "keywords": [],
+  "author": {
+    "name": "Leighton Quito",
+    "email": "hello@iamleigh.com",
+    "url": "https://iamleigh.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamleigh/es6-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iamleigh/es6-components/issues"
+  },
+  "homepage": "https://github.com/iamleigh/es6-components#readme",
+  "scripts": {
+	"dev": "gulp watch",
+	"prod": "gulp deploy",
+	"start": "live-server --port=8080 --host=localhost",
+    "test": "gulp a11y"
+  },
+  "devDependencies": {
+    "eslint": "^8.44.0",
+    "gulp": "^4.0.2",
+    "gulp-accessibility": "^3.1.1",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-header": "^2.0.9",
+    "gulp-if": "^3.0.0",
+    "gulp-mode": "^1.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-uglify-es": "^3.0.0",
+    "live-server": "^1.2.2",
+    "sass": "^1.63.4"
+  },
+  "resolutions": {
+    "axios": "^0.21.2",
+    "glob-parent": "^5.1.2",
+    "lodash.template": "^4.5.0",
+    "validator": "^13.7.0"
+  },
+  "dependencies": {
+    "jquery": "^3.7.0"
+  }
+}
